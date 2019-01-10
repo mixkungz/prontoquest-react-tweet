@@ -15,11 +15,33 @@ const Box = styled.div`
 `
 
 class TweetForm extends Component {
+  state = {
+    tweetInput: ''
+  }
+
+  addTweet = () => {
+    const { tweetInput } = this.state
+    const { addTweet } = this.props
+
+    if (tweetInput === '') return
+
+    addTweet(tweetInput)
+
+    this.setState({ tweetInput: '' })
+  }
+
+  handleInput = event => {
+    this.setState({ tweetInput: event.target.value })
+  }
+
   render() {
     return (
       <Box>
-        <StyledInput />
-        <StyledButton>Tweet</StyledButton>
+        <StyledInput
+          onChange={this.handleInput}
+          value={this.state.tweetInput}
+        />
+        <StyledButton onClick={this.addTweet}>Tweet</StyledButton>
       </Box>
     )
   }

@@ -14,11 +14,10 @@ class App extends Component {
     tweetList: []
   }
 
-  addTweet = async newTweet => {
-    await this.setState(prevState => {
-      prevState.tweetList.unshift(newTweet)
+  addTweet = newTweet => {
+    this.setState(prevState => {
       return {
-        tweetList: prevState.tweetList
+        tweetList: [newTweet, ...prevState.tweetList]
       }
     })
   }

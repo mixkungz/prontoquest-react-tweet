@@ -1,7 +1,7 @@
 import { ADD_TWEET } from './types'
 
-const addTweet = () => {
-  return { type: ADD_TWEET }
+const addTweet = tweet => {
+  return { type: ADD_TWEET, payload: { tweet: tweet } }
 }
 
 export { addTweet }

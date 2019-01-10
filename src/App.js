@@ -6,6 +6,8 @@ import './App.css'
 import logo from './logo.svg'
 import { TweetForm } from './components/TweetForm'
 import { TweetList } from './components/TweetList'
+import { ReduxTweetForm } from './components/ReduxTweetForm'
+import { ReduxTweetList } from './components/ReduxTweetList'
 
 class App extends Component {
   state = {
@@ -30,6 +32,10 @@ class App extends Component {
         <div className="container">
           <TweetForm addTweet={this.addTweet} />
           <TweetList tweetList={this.state.tweetList} />
+          <hr />
+          <h2>Redux Version</h2>
+          <ReduxTweetForm />
+          <ReduxTweetList />
         </div>
       </div>
     )

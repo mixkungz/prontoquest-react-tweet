@@ -5,8 +5,7 @@ const initialState = []
 const tweetReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_TWEET:
-      state.unshift(payload.tweet)
-      return state
+      return [payload.tweet, ...state]
     default:
       return state
   }
